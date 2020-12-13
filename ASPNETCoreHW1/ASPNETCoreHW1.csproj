@@ -5,6 +5,7 @@
   </PropertyGroup>
   <PropertyGroup>
 	<IncludeOpenAPIAnalyzers>true</IncludeOpenAPIAnalyzers>
+	<UserSecretsId>cd49b0a3-910f-46c2-b596-875e3fe03c96</UserSecretsId>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="5.0.1" NoWarn="NU1605" />
