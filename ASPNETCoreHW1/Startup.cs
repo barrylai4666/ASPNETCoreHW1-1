@@ -46,9 +46,15 @@ namespace ASPNETCoreHW1
         {
             if (env.IsDevelopment())
             {
-                app.UseDeveloperExceptionPage(); //錯誤頁面
+                //app.UseDeveloperExceptionPage(); //錯誤頁面
+                app.UseExceptionHandler("/Error");
                 app.UseSwagger();
                 app.UseSwaggerUI(c => c.SwaggerEndpoint("/swagger/v1/swagger.json", "ASPNETCoreHW1 v1"));
+                
+            }
+            else
+            {
+                app.UseExceptionHandler("/Error");
             }
 
             app.UseHttpsRedirection(); //80自動轉443

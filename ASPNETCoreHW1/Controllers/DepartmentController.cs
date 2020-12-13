@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using ASPNETCoreHW1.Models;
 using Omu.ValueInjecter;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Http;
 
 namespace ASPNETCoreHW1.Controllers
 {
@@ -102,6 +103,7 @@ namespace ASPNETCoreHW1.Controllers
            
             var result = sp.Department_Delete(id, data.RowVersion);
 
+            //return new JsonResult(new { msg = "OK", StatusCode = StatusCodes.Status201Created });
             return Ok(data);
         }
 
@@ -110,5 +112,6 @@ namespace ASPNETCoreHW1.Controllers
         {
             return db.VwDepartmentCourseCount.FromSqlInterpolated($"select * from [dbo].[vwDepartmentCourseCount] with(nolock)").ToList();
         }
+
     }
 }

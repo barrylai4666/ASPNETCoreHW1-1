@@ -20,9 +20,16 @@ namespace ASPNETCoreHW1.Controllers
             this.db = db;
         }
 
+        [HttpGet("ErrorPage")]
+        public ActionResult Error()
+        {
+            throw new Exception("oooops, throw exception");
+        }
+
         [HttpGet("")]
         public ActionResult<IEnumerable<Course>> GetCourses()
         {
+
             return db.Course.ToList();
         }
 
