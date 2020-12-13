@@ -32,6 +32,8 @@ namespace ASPNETCoreHW1.Controllers
             logger.LogError("LogError");
             logger.LogCritical("LogCritical");
 
+            logger.LogInformation("Getting item {ID} at {RequestTime}", "12345", DateTime.Now);
+
             return appSettings.Value;
         }
 
