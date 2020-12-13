@@ -33,7 +33,7 @@ namespace ASPNETCoreHW1
         //���U�A��
         public void ConfigureServices(IServiceCollection services)
         {
-            services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
+            services.Configure<AppSettings>(Configuration);
             // using Microsoft.EntityFrameworkCore;
             services.AddDbContext<ContosouniversityContext>(options =>
                 options.UseSqlServer(Configuration.GetConnectionString("CotosouniversityConnection")));
@@ -55,7 +55,7 @@ namespace ASPNETCoreHW1
             
                         // Validate the Issuer
                         ValidateIssuer = true,
-                        ValidIssuer = Configuration.GetValue<string>("AppSettings:JwtSettings:Issuer"),
+                        ValidIssuer = Configuration.GetValue<string>("JwtSettings:Issuer"),
             
                         ValidateAudience = false,
                         //ValidAudience = "JwtAuthDemo", // TODO
@@ -64,7 +64,7 @@ namespace ASPNETCoreHW1
             
                         ValidateIssuerSigningKey = false,
             
-                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration.GetValue<string>("AppSettings:JwtSettings:SignKey")))
+                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration.GetValue<string>("JwtSettings:SignKey")))
                     };
                 });
             services.AddControllers().AddNewtonsoftJson(options => options.SerializerSettings.ReferenceLoopHandling = Newtonsoft.Json.ReferenceLoopHandling.Ignore);

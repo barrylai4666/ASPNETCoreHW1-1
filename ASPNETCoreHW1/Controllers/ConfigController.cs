@@ -13,8 +13,8 @@ namespace ASPNETCoreHW1.Controllers
     [ApiController]
     public class ConfigController : ControllerBase
     {
-        private readonly IOptions<AppSettings> appSettings;
-        public ConfigController(IOptions<AppSettings> appSettings)
+        private readonly IOptionsSnapshot<AppSettings> appSettings;
+        public ConfigController(IOptionsSnapshot<AppSettings> appSettings)
         {
             this.appSettings = appSettings;
         }
